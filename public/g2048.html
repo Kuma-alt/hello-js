@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="g2048.css">
 </head>
-<body>
+<body onkeydown="onKey( event )">
     <table id="game2048">
         <tbody>
             <tr>
@@ -36,10 +36,7 @@
             </tr>
         </tbody>
     </table>
-    <button onclick="mvLeft()">Left</button>
-    <button onclick="mvRight()">Right</button>   
-    <button onclick="mvUp()">Up</button>
-    <button onclick="mvDown()">Down</button>                   
+                       
  <script src="g2048.js"></script> 
 </body>
 </html>

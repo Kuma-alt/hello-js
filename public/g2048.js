@@ -2,7 +2,7 @@ const boardSize = 4;
 
 var board = [
     [0,0,2,4],
-    [0,0,2,0],
+    [2,0,2,0],
     [0,2,0,2],
     [0,2,0,0]
 ];
@@ -18,11 +18,13 @@ for (let r=0; r < boardSize; r++) {// Всі рядки
     
         elBoard[ i ].innerText = '';//очистити
     }
+    let cl = 'c-' + board[ r ][ c ];
+    elBoard[ i ].className = cl;
 }
 }
 
 }
-drawBoard();
+
 function mover( a ) {
     for (let c = 0; c < boardSize-1; c++) {
         if ( a[ c ] == 0 ) {
@@ -36,12 +38,16 @@ function mover( a ) {
             if(cNe0 != -1) {
                 a[ c ] = a[ cNe0 ];
                 a[ cNe0] = 0;
+           
             }
         } 
         let cEq = -1;
         for ( let cR=c+1; cR < boardSize; cR++) {
             if ( a[ c ] == a[ cR ]) {
                 cEq =cR;
+                break;
+            }
+                if ( a[ cR ] > 0) {
                 break;
             }
         }
@@ -58,14 +64,14 @@ function mvLeft() {
         board[ r ] = mover(board[ r ]);
        
     }
-    drawBoard();
+    
 }
 function mvRight() {
   for (let r = 0; r < boardSize; r++) {
       board[r] =  mover(board[r].reverse()).reverse();
       
   }
-    drawBoard();
+    
 }
 function mvUp() {
    for ( let c=0; c < boardSize; c++){
@@ -76,7 +82,7 @@ function mvUp() {
        board[2][c] = a[2];
        board[3][c] = a[3];
    }
-    drawBoard();
+   
 }
 function mvDown() {
     for ( let c=0; c < boardSize; c++){
@@ -87,7 +93,45 @@ function mvDown() {
         board[2][c] = a[2];
         board[3][c] = a[3];
     }
+     
+ }
+ function onKey( e ){
+     switch ( e.keyCode ){
+         case 37: mvLeft(); break;
+         case 38: mvUp(); break;
+         case 39: mvRight(); break;
+         case 40: mvDown(); break;
+     }
+     nextNumber();
      drawBoard();
+ }
+ function gameRnd(){
+     let r = Math.random();
+     if (r > 0.9){
+         return 4;
+     } else{
+         return 2;
+     }
+ }
+ function getZero() {
+     let a = [];
+     for ( let r=0; r< boardSize; r++ ) {
+            for (let c= 0; c < boardSize; c++) {
+    if ( board[ r ][ c ] == 0 ){
+        a.push( [ r, c ] );
+    }
+    
+}
+     }
+     return a;
+ }
+ function nextNumber() {
+let a = getZero();
+let n = a.length;
+let i = Math.floor ( n * Math.random() );
+if ( n >= 0 ) {
+    board[ a[i][0] ][a [i][1]] = gameRnd();
+}
  }
 // [0,0,0,0]
 //1)всі клітнки без останьої
