@@ -16,17 +16,40 @@
     
    
      }
- td.box-1 {
+ .box-1 {
      background-image: url(img/zV-cvA0SWBXUvQwDj4as-_xebWYqBkKbmdABsv8bEq0_U003d-1524474150482.png);
  }
- td.box-2 {
+ .box-2 {
      background: yellow;
  }
- td.box-3 {
+ .box-3 {
     background: brown;
 }
-
+.box-4 {
+    background: green;
+}
+.box-5 {
+    background: orange;
+}
+.box-6 {
+    background: peru;
+}
 td.z {
     background-size: 10% 10%;
+}
+.move {
+    position: absolute;
+    z-index: 10;
+    left: 490px;
+    top: 678px;
+    border: 1px solid white;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: cover; 
+    transition: left 2s linear;
+
 }
     
