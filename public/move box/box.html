@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="box1.css">
 </head>
 <body> 
-    <table id="move-the-box" onclick="boardClick(event)">
+    <table id="move-the-box" 
+    onmouseover="mouseOver(event)">
         <tr>
             <td></td>
             <td></td>
@@ -84,11 +85,18 @@
         </tr>
     </table>
     <div id="buttons">
-        <button onclick="moveLeft()">L</button><br>
-        <button onclick="moveRight()">R</button>
-        <button onclick="moveUp()">U</button><br>
-        <button onclick="moveDown()">D</button>
+        <div id="btnU"onclick="moveUp()"><span>&uArr;</span></div>
+        <div id="btnL"onclick="moveLeft()"><span>&lArr;</span></div>
+        <div id="btnR"onclick="moveRight()"><span>&rArr;</span></div>       
+        <div id="btnD"onclick="moveDown()"><span>&dArr;</span></div>
     </div>
-    <script src="box.js"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="box-board.js"></script>
+    <script src="box-handler.js"></script>
+    <script src="box-new.js"></script>
+    <script src="box-boom.js"></script>
+    <script>
+    drawBoard();
+    </script>
 </body>
 </html>
